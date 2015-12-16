@@ -2,25 +2,57 @@
 {
 	height: 1000px;
 }
+body
+{
+	margin: 0;
+}
 #sect1
 {
 	background-color: orange;
 	height: 10000px;
+	width: 100%;
+  	display: flex;          /* NEW: IE11, Chrome 29+, Opera 12.1+, Firefox 22+ */
+	align-items: center;
+  	justify-content: center;
+	margin: 0;
+	/*text-align: center;*/
 }
 
 #square
 {
-	height: 100px;
-	width: 100px;
-	position: absolute;
-	margin: 40%;
+	height: 600px;
+	width: 1000px;
 	background-color: white;
+	display: flex;
+	align-items: center;
+	perspective: 700px;
+
+
 }
 
+#img1
+{
+	width: 20%;
+	padding:10%;
+	z-index: 20;
+	perspective: 700px;
+
+}
+#img2
+{
+	width: 90%;
+	overflow: hidden;
+	margin-left: -20%;
+	z-index: 10;
+	perspective: 700px;
+
+}
+.rotate
+{
+}
 .fish
 {
-	transform: perspective( 600px ) rotateY( 45deg ) scale(3);
-	perspective-origin: 25% 75%;
-	/*padding: 20%*/
+
+  /*transform: rotate3d(1,2,1,90deg);*/
 
 }

@@ -8,7 +8,9 @@
 
 	</section>
 	<section id = "sect1">
-		<div id="square">
+		<div id="square" class="rotate">
+			<img class="rotate" src="./screen2.png" id="img1">
+			<img class="rotate" src="./screen1.png" id= "img2">
 		</div>
 	</section>
 
@@ -17,12 +19,21 @@
 	<script src="./bower_components/scrollmagic/scrollmagic/uncompressed/plugins/animation.gsap.js"></script>
 	<script>
 		var controller = new ScrollMagic.Controller();
+		// TweenLite.set("#square", {perspective:750});
+		// TweenLite.set("#img1", {transformPerspective:750});
+		// TweenLite.set("#img2", {transformPerspective:750});
 
+		var animation = new TimelineLite()
+		animation.to('#square', 10, {rotationX:60})
+             .to('#img1', 30, {css:{z:200}},'10').to('#img2',30,{css:{z:400}},'10');
 		// build tween
-		var tween = TweenMax.to("#square", 1, {className: "+=fish"});
+		// var tween = TweenMax.to("#square", 1, {className: "+=fish", backgroundColor:"red"});
 		// build scene
-		var scene = new ScrollMagic.Scene({triggerElement: "#sect1", duration: 200, offset: 50})
-						.setTween(tween).addTo(controller);
+		var scene = new ScrollMagic.Scene({triggerElement: "#sect1", duration:4000, offset: 50})
+						.setTween(animation).addTo(controller);
+		var scene = new ScrollMagic.Scene({triggerElement: "#sect1", duration: 9000})
+								.setPin("#square")
+								.addTo(controller);
 	</script>
 </body>
 </html>
