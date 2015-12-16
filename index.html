@@ -1,0 +1,28 @@
+<html>
+<head>
+	<title>CSS 3D transforms</title>
+	<link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+	<section id = "spacer">
+
+	</section>
+	<section id = "sect1">
+		<div id="square">
+		</div>
+	</section>
+
+	<script src="./bower_components/gsap/src/uncompressed/TweenMax.js"></script>
+	<script src="./bower_components/scrollmagic/scrollmagic/uncompressed/ScrollMagic.js"></script>
+	<script src="./bower_components/scrollmagic/scrollmagic/uncompressed/plugins/animation.gsap.js"></script>
+	<script>
+		var controller = new ScrollMagic.Controller();
+
+		// build tween
+		var tween = TweenMax.to("#square", 1, {className: "+=fish"});
+		// build scene
+		var scene = new ScrollMagic.Scene({triggerElement: "#sect1", duration: 200, offset: 50})
+						.setTween(tween).addTo(controller);
+	</script>
+</body>
+</html>
